@@ -1,9 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import {
-	Link as RouterLink,
-	LinkProps as RouterLinkProps,
-} from "react-router-dom";
+import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
 
 export interface Props extends RouterLinkProps {
 	useNative?: boolean;
@@ -31,10 +28,7 @@ export const Link: React.FC<Props> = ({
 }) => {
 	if (
 		useNative ||
-		(pathname &&
-			(pathname.includes("http") ||
-				pathname.includes("mailto:") ||
-				pathname.includes("tel:+")))
+		(pathname && (pathname.includes('http') || pathname.includes('mailto:') || pathname.includes('tel:+')))
 	) {
 		return (
 			// eslint-disable-next-line react/forbid-elements

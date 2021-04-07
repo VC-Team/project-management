@@ -1,20 +1,20 @@
-import React from "react";
+import React from 'react';
 
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Link, Props } from ".";
+import { Link, Props } from '.';
 
 // This default export determines where your story goes in the story list
 export default {
-	title: "Components|utils/Link",
+	title: 'Components|utils/Link',
 	component: Link,
 } as Meta;
 
-const Template: Story<Props> = (args) => <Link {...args} />;
+const Template: Story<Props> = args => <Link {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {
-	children: "Link (depends on here is MPA or SPA)",
-	to: "/somewhere",
+	children: 'Link (depends on here is MPA or SPA)',
+	to: '/somewhere',
 	state: { a: 123 },
 };
