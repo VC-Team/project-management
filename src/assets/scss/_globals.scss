@@ -1,67 +1,66 @@
 html {
-  font-size: $FONT-SIZE-HTML;
-  word-break: break-word;
+	font-size: $FONT-SIZE-HTML;
+	word-break: break-word;
 }
 
 body {
-  margin: 0;
-  overflow-x: hidden;
-  font-family: $FONTFAMILY-BASIC;
-  color: $COLOR-BLACK;
+	margin: 0;
+	overflow-x: hidden;
+	font-family: $FONTFAMILY-BASIC;
+	color: $COLOR-BLACK;
 }
 
 // Default a-text style for p tags
 p {
-  font-size: rem($FONT-SIZE-HTML-VALUE);
+	font-size: rem($FONT-SIZE-HTML-VALUE);
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 // Default a-textlink style for a tags
 a {
-  color: $COLOR-DENIM;
-  text-decoration: none;
+	color: $COLOR-DENIM;
+	text-decoration: none;
 
-  &:hover {
-    color: inherit;
-  }
+	&:hover {
+		color: inherit;
+	}
 }
 
 img {
-  max-width: 100%;
+	max-width: 100%;
 }
-
 
 button,
 select {
-  font-family: inherit;
+	font-family: inherit;
 
-  &:focus {
-    border: none;
-    outline: none;
-    appearance: none;
-  }
+	&:focus {
+		border: none;
+		outline: none;
+		appearance: none;
+	}
 }
 
-[role="button"],
+[role='button'],
 button {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 ul,
 ol {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 b,
 strong {
-  @include u-fw-bold;
+	@include u-fw-bold;
 }
 
 // Set the background-color of the body Iframe to transparent
 .sb-show-main {
-  background-color: $COLOR-TRANSPARENT;
+	background-color: $COLOR-TRANSPARENT;
 }
