@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 function App() {
 	const [count, setCount] = useState(0);
 
+	console.log('count: ', count);
 	return (
 		<div className="app">
 			<header className="app-header">
