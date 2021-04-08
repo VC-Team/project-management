@@ -30,6 +30,12 @@
 			"stylelint ./src/**/*.scss --mw 0"
 		]
   },
+	"husky": {
+    "hooks": {
+      "pre-commit": "npx --no-install lint-staged",
+      "pre-push": "npx --no-install lint-staged"
+    }
+  },
   "dependencies": {
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
