@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { Link } from '@utils/link';
+
 function App() {
 	const [count, setCount] = useState(0);
 
@@ -28,6 +30,8 @@ function App() {
 					>
 						Vite Docs
 					</a>
+					<br />
+					<Link to="/link">Link</Link>
 				</p>
 			</header>
 		</div>

@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
-
-import { Link, Props } from '.';
+import { Link, Props } from '@utils/link';
 
 // This default export determines where your story goes in the story list
 export default {

@@ -15,7 +15,16 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "baseUrl": "src"
+		"baseUrl": ".",
+    "paths": {
+      "@atoms/*": ["src/components/atoms/*"],
+      "@molecules/*": ["src/components/molecules/*"],
+      "@organisms/*": ["src/components/organisms/*"],
+      "@pages/*": ["src/components/pages/*"],
+      "@templates/*": ["src/components/templates/*"],
+      "@utils/*": ["src/components/utils/*"],
+			"*": ["src/*"],
+    }
   },
-  "include": ["./src"]
+  "include": ["src"]
 }

@@ -26,9 +26,9 @@
     "*.{ts,tsx}": [
       "eslint ./src --ext .ts --ext .tsx --color --max-warnings 0"
     ],
-		"*.{css,scss}": [
-			"stylelint ./src/**/*.scss --mw 0"
-		]
+    "*.{css,scss}": [
+      "stylelint ./src/**/*.scss --mw 0"
+    ]
   },
   "dependencies": {
     "react": "^17.0.0",
