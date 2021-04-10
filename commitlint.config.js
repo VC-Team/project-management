@@ -3,7 +3,7 @@ module.exports = {
 	extends: ['gitmoji'],
 	parserPreset: {
 		parserOpts: {
-			headerPattern: /^(:\w*:)(?:\s)(?:\((.*?)\))?\s((?:.*(?=\())|.*)(?:\(#(\d*)\))?/,
+			headerPattern: /^(:\w*:)(?:\s)([a-zA-Z]{1,})(?:\((.*?)\))?\s((?:.*(?=\())|.*)(?:\(#(\d*)\))?/,
 			headerCorrespondence: ['type', 'scope', 'subject', 'ticket'],
 		},
 	},
