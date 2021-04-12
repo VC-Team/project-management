@@ -53,6 +53,7 @@
 		"babel-loader": "^8.2.2",
 		"change-case": "^4.1.2",
 		"commitizen": "^4.2.3",
+		"commitlint": "^12.1.1",
 		"commitlint-config-gitmoji": "^2.2.3",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^7.23.0",
@@ -73,112 +74,112 @@
 		"stylelint-config-recess-order": "^2.3.0",
 		"stylelint-prettier": "^1.2.0",
 		"typescript": "^4.1.2",
-		"vc-cz-emoji": "^0.0.1",
+		"vc-cz-emoji": "^0.0.2",
 		"vite": "^2.1.5"
 	},
 	"config": {
 		"commitizen": {
-			"path": "vc-cz-emoji",
-			"cz-emoji": {
-				"types": [
-					{
-						"emoji": "⚡️",
-						"code": ":zap:",
-						"description": "Improving performance.",
-						"name": "perf"
-					},
-					{
-						"emoji": "🔥",
-						"code": ":fire:",
-						"description": "Removing code or files.",
-						"name": "prune"
-					},
-					{
-						"emoji": "🐛",
-						"code": ":bug:",
-						"description": "Fixing a bug.",
-						"name": "fix"
-					},
-					{
-						"emoji": "✨",
-						"code": ":sparkles:",
-						"description": "Introducing new features.",
-						"name": "feat"
-					},
-					{
-						"emoji": "📝",
-						"code": ":pencil:",
-						"description": "Writing docs.",
-						"name": "docs"
-					},
-					{
-						"emoji": "🚀",
-						"code": ":rocket:",
-						"description": "Deploying stuff.",
-						"name": "deploy"
-					},
-					{
-						"emoji": "✅",
-						"code": ":white_check_mark:",
-						"description": "Adding tests.",
-						"name": "test"
-					},
-					{
-						"emoji": "🔖",
-						"code": ":bookmark:",
-						"description": "Releasing / Version tags.",
-						"name": "release"
-					},
-					{
-						"emoji": "🚧",
-						"code": ":construction:",
-						"description": "Work in progress.",
-						"name": "wip"
-					},
-					{
-						"emoji": "⬇️",
-						"code": ":arrow_down:",
-						"description": "Downgrading dependencies.",
-						"name": "downgrade"
-					},
-					{
-						"emoji": "⬆️",
-						"code": ":arrow_up:",
-						"description": "Upgrading dependencies.",
-						"name": "upgrade"
-					},
-					{
-						"emoji": "♻️",
-						"code": ":recycle:",
-						"description": "Refactoring code.",
-						"name": "refactor"
-					},
-					{
-						"emoji": "⏪",
-						"code": ":rewind:",
-						"description": "Reverting changes.",
-						"name": "revert"
-					},
-					{
-						"emoji": "🔀",
-						"code": ":twisted_rightwards_arrows:",
-						"description": "Merging branches.",
-						"name": "merge"
-					},
-					{
-						"emoji": "👌",
-						"code": ":ok_hand:",
-						"description": "Updating code due to code review changes.",
-						"name": "review"
-					},
-					{
-						"emoji": "⚗",
-						"code": ":alembic:",
-						"description": "Experimenting new things.",
-						"name": "experiment"
-					}
-				]
-			}
+			"path": "vc-cz-emoji"
+		},
+		"cz-emoji": {
+			"types": [
+				{
+					"emoji": "⚡️",
+					"code": ":zap:",
+					"description": "Improving performance.",
+					"name": "perf"
+				},
+				{
+					"emoji": "🔥",
+					"code": ":fire:",
+					"description": "Removing code or files.",
+					"name": "prune"
+				},
+				{
+					"emoji": "🐛",
+					"code": ":bug:",
+					"description": "Fixing a bug.",
+					"name": "fix"
+				},
+				{
+					"emoji": "✨",
+					"code": ":sparkles:",
+					"description": "Introducing new features.",
+					"name": "feat"
+				},
+				{
+					"emoji": "📝",
+					"code": ":pencil:",
+					"description": "Writing docs.",
+					"name": "docs"
+				},
+				{
+					"emoji": "🚀",
+					"code": ":rocket:",
+					"description": "Deploying stuff.",
+					"name": "deploy"
+				},
+				{
+					"emoji": "✅",
+					"code": ":white_check_mark:",
+					"description": "Adding tests.",
+					"name": "test"
+				},
+				{
+					"emoji": "🔖",
+					"code": ":bookmark:",
+					"description": "Releasing / Version tags.",
+					"name": "release"
+				},
+				{
+					"emoji": "🚧",
+					"code": ":construction:",
+					"description": "Work in progress.",
+					"name": "wip"
+				},
+				{
+					"emoji": "⬇️",
+					"code": ":arrow_down:",
+					"description": "Downgrading dependencies.",
+					"name": "downgrade"
+				},
+				{
+					"emoji": "⬆️",
+					"code": ":arrow_up:",
+					"description": "Upgrading dependencies.",
+					"name": "upgrade"
+				},
+				{
+					"emoji": "♻️",
+					"code": ":recycle:",
+					"description": "Refactoring code.",
+					"name": "refactor"
+				},
+				{
+					"emoji": "⏪",
+					"code": ":rewind:",
+					"description": "Reverting changes.",
+					"name": "revert"
+				},
+				{
+					"emoji": "🔀",
+					"code": ":twisted_rightwards_arrows:",
+					"description": "Merging branches.",
+					"name": "merge"
+				},
+				{
+					"emoji": "👌",
+					"code": ":ok_hand:",
+					"description": "Updating code due to code review changes.",
+					"name": "review"
+				},
+				{
+					"emoji": "⚗",
+					"code": ":alembic:",
+					"description": "Experimenting new things.",
+					"name": "experiment"
+				}
+			]
 		}
 	}
 }
