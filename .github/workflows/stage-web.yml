@@ -1,0 +1,127 @@
+name: Deploy WebApp (Staging Env)
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+env:
+  PNPM_CACHE_FOLDER: .pnpm-store
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  test:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: setup caching
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.PNPM_CACHE_FOLDER }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+
+      - name: install pnpm
+        uses: pnpm/action-setup@v1.2.1
+        with:
+          version: 5.17.2
+
+      - name: setup pnpm config
+        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
+
+      - name: install dependencies
+        run: pnpm install
+
+      - name: lint js
+        run: pnpm lint:script
+
+      - name: lint style
+        run: pnpm lint:style
+      
+      - name: format js
+        run: pnpm format:script
+
+      - name: format style
+        run: pnpm format:style
+      
+      - name: build
+        run: pnpm build
+  
+  docker-hub:
+    needs:
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Login Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v1
+        id: buildx
+
+      - name: Cache Docker Image Layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v2
+        id: docker_build
+        with:
+          context: ./
+          file: ./Dockerfile
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_DEV_IMAGE }}
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+
+      - name: Verify
+        run: echo ${{ steps.docker_build.outputs.digest }}
+
+  deploy:
+    needs:
+      - test
+      - docker-hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH and deploy node app
+        uses: appleboy/ssh-action@master
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+        with:
+          host: '${{ secrets.SSH_HOST }}'
+          username: '${{ secrets.SSH_USERNAME }}'
+          key: '${{ secrets.SSH_KEY }}'
+          port: '${{ secrets.SSH_PORT }}'
+          envs: DOCKERHUB_USERNAME,DOCKERHUB_PASSWORD
+          script: |
+            docker login --username=$DOCKERHUB_USERNAME --password=$DOCKERHUB_PASSWORD
+            cd ~/apps/project-management
+            git checkout --f master
+            git remote prune origin
+            git pull
+            docker-compose -f docker-compose.yml up -d --no-deps --build pms-web-app
