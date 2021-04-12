@@ -121,7 +121,6 @@ jobs:
           script: |
             docker login --username=$DOCKERHUB_USERNAME --password=$DOCKERHUB_PASSWORD
             cd ~/app/project-management
-            cd ~/app/project-management
             git checkout --f master
             git remote prune origin
             git pull
