@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  pms-web-app:
+    container_name: pms-web-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5051:80"
+    environment:
+      - NODE_ENV=production

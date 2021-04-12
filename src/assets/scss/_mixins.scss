@@ -1,0 +1,102 @@
+/* @media
+--------------------------------------------------------- */
+@mixin pc-large() {
+	@media (min-width: $WIDTH-PC-LARGE) {
+		@content;
+	}
+}
+
+@mixin pc() {
+	@media (min-width: $WIDTH-XS + 1px) {
+		@content;
+	}
+}
+
+@mixin tab() {
+	@media (min-width: $WIDTH-XS + 1) and (max-width: $WIDTH-PC - 1px) {
+		@content;
+	}
+}
+
+@mixin sp() {
+	@media (max-width: $WIDTH-XS) {
+		@content;
+	}
+}
+
+/* There are three mixins apply for font-weight
+--------------------------------------------------------- */
+@mixin u-fw-thin {
+	font-weight: 100;
+}
+
+@mixin u-fw-extlight {
+	font-weight: 200;
+}
+
+@mixin u-fw-light {
+	font-weight: 300;
+}
+
+@mixin u-fw-regular {
+	font-weight: 400;
+}
+
+@mixin u-fw-medium {
+	font-weight: 500;
+}
+
+@mixin u-fw-semibold {
+	font-weight: 600;
+}
+
+@mixin u-fw-bold {
+	font-weight: 700;
+}
+
+/* make area that keep the aspect-ratio of area. This should be used with background-image
+--------------------------------------------------------- */
+@mixin aspectRatio($width: 1, $height: 1) {
+	position: relative;
+	&:before {
+		display: block;
+		padding-bottom: ($height / $width) * 100%;
+		content: '';
+	}
+}
+
+@mixin text-overflow($number: 2) {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: ($number);
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, $COLOR-WHITE, 50%)) {
+	// For Google Chrome
+	&::-webkit-scrollbar {
+		width: $size;
+		height: $size;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $foreground-color;
+		border-radius: 4px;
+		transition: background-color 0.3s ease-in-out;
+
+		&:hover {
+			background-color: mix($foreground-color, $COLOR-BLACK, 70%);
+		}
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: $background-color;
+	}
+
+	// For Internet Explorer
+	& {
+		scrollbar-face-color: $foreground-color;
+		scrollbar-track-color: $background-color;
+	}
+}
