@@ -109,7 +109,7 @@
 				},
 				{
 					"emoji": "📝",
-					"code": ":pencil:",
+					"code": ":memo:",
 					"description": "Writing docs.",
 					"name": "docs"
 				},
@@ -168,8 +168,8 @@
 					"name": "merge"
 				},
 				{
-					"emoji": "👌",
-					"code": ":ok_hand:",
+					"emoji": "🧐",
+					"code": ":monocle_face:",
 					"description": "Updating code due to code review changes.",
 					"name": "review"
 				},
