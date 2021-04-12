@@ -117,7 +117,7 @@ jobs:
           script: |
             docker login --username=$DOCKERHUB_USERNAME --password=$DOCKERHUB_PASSWORD
             cd ~/apps/project-management
-            git checkout --f master
+            git checkout --f main
             git remote prune origin
             git pull
             docker-compose -f docker-compose.yml up -d --no-deps --build pms-web-app
