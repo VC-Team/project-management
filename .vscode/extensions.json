@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "SonarSource.sonarlint-vscode",
+        "esbenp.prettier-vscode",
+        "stylelint.vscode-stylelint",
+        "gitlab.gitlab-workflow",
+        "alexdima.vscode-lcov",
+        "editorconfig.editorconfig",
+        "eamodio.gitlens",
+        "ritwickdey.liveserver"
+    ],
+}
