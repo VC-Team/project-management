@@ -120,7 +120,7 @@ jobs:
           envs: DOCKERHUB_USERNAME,DOCKERHUB_PASSWORD
           script: |
             docker login --username=$DOCKERHUB_USERNAME --password=$DOCKERHUB_PASSWORD
-            cd ~/app/project-management
+            cd ~/apps/project-management
             git checkout --f develop
             git remote prune origin
             git pull
