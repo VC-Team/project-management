@@ -58,3 +58,6 @@ jobs:
       
       - name: build
         run: pnpm build
+
+      - name: rebuild-storybook
+        run: pnpm build-storybook

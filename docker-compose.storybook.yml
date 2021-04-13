@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  pms-web-storybook:
+    container_name: pms-web-storybook
+    build:
+      context: .
+      dockerfile: Dockerfile.storybook
+    ports:
+      - "5055:80"
+    environment:
+      - NODE_ENV=development
