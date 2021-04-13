@@ -15,12 +15,13 @@ No documents available at this time...
 ## Languages and Frameworks
 
 - Vite ^2.1.5
-- React ^7.13.14
-- React-router-dom v5
+- Node ^12.22.1
+- React ^17.0.0
+- React-router-dom ^5
 - SCSS (node-sass) ^4
 - TypeScript ^4.1.2
 - Babel ^7.13.14
-- Storybook v6
+- Storybook ^6
 - Husky ^6.0.0
 - Lint-staged
 - Hygen
