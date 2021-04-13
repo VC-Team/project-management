@@ -6,6 +6,9 @@ import { defineConfig } from 'vite';
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [reactRefresh()],
+	build: {
+		sourcemap: process.env.NODE_ENV === 'production' ? true : false,
+	},
 	resolve: {
 		alias: {
 			'@atoms': resolve(__dirname, 'src/components/atoms'),
