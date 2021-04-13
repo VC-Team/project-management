@@ -7,7 +7,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	plugins: [reactRefresh()],
 	build: {
-		sourcemap: process.env.NODE_ENV === 'production' ? true : false,
+		sourcemap: process.env.NODE_ENV === 'production' ? false : true,
 	},
 	resolve: {
 		alias: {
