@@ -7,13 +7,15 @@ RUN npm i -g pnpm
 COPY package.json /app/package.json
 COPY pnpm-lock.yaml /app/pnpm-lock.yaml
 
-RUN pnpm install --production --quiet
+RUN pnpm install --silent
+
+ENV NODE_ENV=production
 
 COPY . .
 
-ENV NODE_ENV=development
-
 RUN pnpm build
+
+RUN pnpm prune --production
 
 FROM nginx:alpine
 

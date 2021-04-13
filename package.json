@@ -2,7 +2,7 @@
 	"name": "project-management",
 	"version": "0.0.1",
 	"scripts": {
-		"prepare": "husky install",
+		"prepare": "[ \"$NODE_ENV\" != production ] && exit 0; husky install",
 		"dev": "vite",
 		"build": "tsc && vite build",
 		"serve": "vite preview",
