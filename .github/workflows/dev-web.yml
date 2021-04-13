@@ -118,4 +118,3 @@ jobs:
             git remote prune origin
             git pull
             docker-compose -f docker-compose.dev.yml up -d --no-deps --build
-            docker-compose -f docker-compose.storybook.yml up -d --no-deps --build
