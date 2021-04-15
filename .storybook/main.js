@@ -21,6 +21,11 @@ module.exports = {
       "@templates": path.resolve(__dirname, "../src/components/templates/"),
       "@utils": path.resolve(__dirname, "../src/components/utils/"),
     };
+		config.module.rules.push({
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader'],
+      include: path.resolve(__dirname, '../'),
+    });
 		config.resolve.extensions.push(".ts", ".tsx");
     return config;
   },
