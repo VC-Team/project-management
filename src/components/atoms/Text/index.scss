@@ -1,9 +1,34 @@
 .a-text {
 	font-size: 16px;
-	color: rgb(19, 19, 19);
+
+	&-left {
+		text-align: left;
+	}
+
+	&-center {
+		text-align: center;
+	}
+
+	&-right {
+		text-align: right;
+	}
+
+	&-justify {
+		text-align: justify;
+	}
+
+	&-primary {
+		color: rgb(19, 19, 19);
+	}
 
 	&-secondary {
 		color: rgba(19, 19, 19, 0.7);
+	}
+
+	&-truncated {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	&-xs {
