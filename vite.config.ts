@@ -17,7 +17,11 @@ export default defineConfig({
 			'@pages': resolve(__dirname, 'src/components/pages'),
 			'@templates': resolve(__dirname, 'src/components/templates'),
 			'@utils': resolve(__dirname, 'src/components/utils'),
-			'*': resolve(__dirname, 'src'),
+			helpers: resolve(__dirname, 'src/helpers'),
+			store: resolve(__dirname, 'src/store'),
+			services: resolve(__dirname, 'src/services'),
+			pages: resolve(__dirname, 'src/pages'),
+			assets: resolve(__dirname, 'src/assets'),
 		},
 	},
 });
