@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { mapModifiers } from '../../../helpers/component';
+import { mapModifiers } from 'helpers/component';
 
 import './index.scss';
 export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
@@ -30,7 +30,7 @@ export const Text: React.FC<Props> = ({
 				color && color,
 				isTruncated && 'truncated',
 				size !== 'md' && size
-			)} ${className ? className : ''}`,
+			)} ${className || ''}`,
 			...otherProps,
 		},
 		children
