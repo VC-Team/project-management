@@ -25,6 +25,14 @@
 		color: rgba(19, 19, 19, 0.7);
 	}
 
+	&-block {
+		display: block;
+	}
+
+	&-inline {
+		display: inline;
+	}
+
 	&-truncated {
 		overflow: hidden;
 		text-overflow: ellipsis;

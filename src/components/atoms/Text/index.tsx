@@ -5,10 +5,11 @@ import { mapModifiers } from 'helpers/component';
 import './index.scss';
 export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
 	align?: 'left' | 'center' | 'right' | 'justify';
+	as?: 'p' | 'i' | 'u' | 'abbr' | 'cite' | 'del' | 'em' | 'ins' | 'kbd' | 'mark' | 's' | 'samp' | 'sub' | 'sup';
 	color?: 'primary' | 'secondary';
+	display?: 'block' | 'inline';
 	isTruncated?: boolean;
 	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-	tag?: keyof JSX.IntrinsicElements;
 }
 
 export const Text: React.FC<Props> = ({
@@ -16,18 +17,20 @@ export const Text: React.FC<Props> = ({
 	children,
 	className,
 	color,
+	display,
 	isTruncated,
 	size = 'md',
-	tag = 'p',
+	as = 'p',
 	...otherProps
 }) => {
 	return React.createElement(
-		tag,
+		as,
 		{
 			className: `${mapModifiers(
 				'a-text',
 				align && align,
 				color && color,
+				display && display,
 				isTruncated && 'truncated',
 				size !== 'md' && size
 			)} ${className || ''}`,
