@@ -1,0 +1,57 @@
+.a-text {
+	font-size: 16px;
+
+	&-left {
+		text-align: left;
+	}
+
+	&-center {
+		text-align: center;
+	}
+
+	&-right {
+		text-align: right;
+	}
+
+	&-justify {
+		text-align: justify;
+	}
+
+	&-primary {
+		color: rgb(19, 19, 19);
+	}
+
+	&-secondary {
+		color: rgba(19, 19, 19, 0.7);
+	}
+
+	&-block {
+		display: block;
+	}
+
+	&-inline {
+		display: inline;
+	}
+
+	&-truncated {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	&-xs {
+		font-size: 12px;
+	}
+
+	&-sm {
+		font-size: 14px;
+	}
+
+	&-lg {
+		font-size: 18px;
+	}
+
+	&-xl {
+		font-size: 20px;
+	}
+}
