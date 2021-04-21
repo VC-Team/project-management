@@ -7,16 +7,16 @@ export interface Props {
 	alt?: string;
 	borderColor?: 'transparent' | 'white';
 	borderOn?: ('always' | 'hover' | 'active' | 'focus')[];
-	borderWidth?: 1 | 2 | 3 | 5;
+	borderWidth?: 'small' | 'normal' | 'large';
 	size?: 'small' | 'normal' | 'large';
 	src: string;
 }
 
 export const Avatar: React.FC<Props> = ({
 	alt,
-	borderColor = 'transparent',
+	borderColor = 'white',
 	borderOn,
-	borderWidth,
+	borderWidth = 'normal',
 	size = 'normal',
 	src,
 }) => {
@@ -24,9 +24,9 @@ export const Avatar: React.FC<Props> = ({
 		<div
 			className={mapModifiers(
 				'a-avatar',
-				borderColor !== 'transparent' && `border-${borderColor}`,
+				borderColor !== 'white' && `border-${borderColor}`,
 				borderOn && borderOn.map(type => `border-${type}`),
-				borderWidth && `border-${borderWidth}`,
+				borderWidth !== 'normal' && `border-${borderWidth}`,
 				size !== 'normal' && size
 			)}
 		>

@@ -1,12 +1,12 @@
-$BORDER_WHITE: rgb(255, 255, 255);
-
 .a-avatar {
+	$BORDER_WHITE: rgb(255, 255, 255);
+
 	box-sizing: border-box;
 	display: inline-block;
 	width: 30px;
 	height: 30px;
 	overflow: hidden;
-	border-color: transparent;
+	border: 2px $BORDER_WHITE;
 	border-radius: 50%;
 
 	&_image {
@@ -25,15 +25,11 @@ $BORDER_WHITE: rgb(255, 255, 255);
 		height: 48px;
 	}
 
-	&-border-1 {
+	&-border-small {
 		border-width: 1px;
 	}
 
-	&-border-2 {
-		border-width: 2px;
-	}
-
-	&-border-5 {
+	&-border-large {
 		border-width: 5px;
 	}
 
@@ -44,7 +40,7 @@ $BORDER_WHITE: rgb(255, 255, 255);
 		border-style: solid;
 	}
 
-	&-border-white {
-		border-color: $BORDER_WHITE;
+	&-border-transparent {
+		border-color: transparent;
 	}
 }
