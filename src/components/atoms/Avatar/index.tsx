@@ -14,7 +14,7 @@ export interface Props {
 
 export const Avatar: React.FC<Props> = ({
 	alt,
-	borderColor = 'rgb(255, 255, 255)',
+	borderColor,
 	borderOn,
 	borderWidth = 'normal',
 	size = 'normal',

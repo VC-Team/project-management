@@ -1,7 +1,10 @@
 .a-avatar {
+	$BORDER_WHITE: rgb(255, 255, 255);
+
 	box-sizing: border-box;
 	display: inline-block;
 	overflow: hidden;
+	border-color: $BORDER_WHITE;
 	border-radius: 50%;
 
 	&_image {
