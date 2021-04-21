@@ -3,6 +3,8 @@ import { resolve } from 'path';
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import { defineConfig } from 'vite';
 
+const pathSrc = resolve(__dirname, './src');
+
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [reactRefresh()],
@@ -22,6 +24,22 @@ export default defineConfig({
 			services: resolve(__dirname, 'src/services'),
 			pages: resolve(__dirname, 'src/pages'),
 			assets: resolve(__dirname, 'src/assets'),
+		},
+	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				additionalData: [
+					'assets/scss/_variables',
+					'assets/scss/_mixins',
+					'assets/scss/_zIndex',
+					'assets/scss/_fonts',
+					'assets/scss/_functions',
+					'assets/scss/_globals',
+				]
+					.map(stylePathFile => `@import "${pathSrc}/${stylePathFile}";`)
+					.join('\n'),
+			},
 		},
 	},
 });
