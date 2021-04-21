@@ -1,6 +1,4 @@
 .a-avatar {
-	$BORDER_WHITE: rgb(255, 255, 255);
-
 	box-sizing: border-box;
 	display: inline-block;
 	overflow: hidden;
@@ -44,13 +42,5 @@
 	&-border-active:active,
 	&-border-focus:focus {
 		border-style: solid;
-	}
-
-	&-border-white {
-		border-color: $BORDER_WHITE;
-	}
-
-	&-border-transparent {
-		border-color: transparent;
 	}
 }
