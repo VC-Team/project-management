@@ -2,26 +2,35 @@ import React from 'react';
 
 import { mapModifiers } from 'helpers/component';
 
+import './index.scss';
 export interface Props {
 	alt?: string;
-	bordered?: boolean;
-	children?: React.ReactNode;
+	borderColor?: 'transparent' | 'white';
+	borderOn?: ('always' | 'hover' | 'active' | 'focus')[];
+	borderWidth?: 1 | 2 | 3 | 5;
 	size?: 'small' | 'normal' | 'large';
-	src?: string;
+	src: string;
 }
 
-import './index.scss';
-
-export const Avatar: React.FC<Props> = ({ alt, bordered, children, size, src }) => {
+export const Avatar: React.FC<Props> = ({
+	alt,
+	borderColor = 'transparent',
+	borderOn,
+	borderWidth,
+	size = 'normal',
+	src,
+}) => {
 	return (
-		<div className={mapModifiers('a-avatar', bordered && 'bordered', size !== 'normal' && size)}>
-			{src ? (
-				<img className="a-avatar_image" src={src} alt={alt} />
-			) : (
-				<span className="a-avatar_name">
-					{typeof children === 'string' ? children?.charAt(0).toLocaleUpperCase() : children}
-				</span>
+		<div
+			className={mapModifiers(
+				'a-avatar',
+				borderColor !== 'transparent' && `border-${borderColor}`,
+				borderOn && borderOn.map(type => `border-${type}`),
+				borderWidth && `border-${borderWidth}`,
+				size !== 'normal' && size
 			)}
+		>
+			<img className="a-avatar_image" src={src} alt={alt} />
 		</div>
 	);
 };

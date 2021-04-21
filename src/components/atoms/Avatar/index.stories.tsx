@@ -13,6 +13,6 @@ const Template: Story<Props> = ({ ...props }) => <Avatar {...props} />;
 export const Normal = Template.bind({});
 
 Normal.args = {
-	children: 'avatar',
 	src: 'https://picsum.photos/32/32',
+	borderOn: ['hover'],
 };
