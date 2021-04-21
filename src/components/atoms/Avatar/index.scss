@@ -3,10 +3,7 @@
 
 	box-sizing: border-box;
 	display: inline-block;
-	width: 30px;
-	height: 30px;
 	overflow: hidden;
-	border: 2px $BORDER_WHITE;
 	border-radius: 50%;
 
 	&_image {
@@ -20,6 +17,11 @@
 		height: 20px;
 	}
 
+	&-normal {
+		width: 30px;
+		height: 30px;
+	}
+
 	&-large {
 		width: 48px;
 		height: 48px;
@@ -27,6 +29,10 @@
 
 	&-border-small {
 		border-width: 1px;
+	}
+
+	&-border-normal {
+		border-width: 2px;
 	}
 
 	&-border-large {
@@ -38,6 +44,10 @@
 	&-border-active:active,
 	&-border-focus:focus {
 		border-style: solid;
+	}
+
+	&-border-white {
+		border-color: $BORDER_WHITE;
 	}
 
 	&-border-transparent {

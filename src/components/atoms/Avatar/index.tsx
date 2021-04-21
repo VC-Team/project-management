@@ -24,10 +24,10 @@ export const Avatar: React.FC<Props> = ({
 		<div
 			className={mapModifiers(
 				'a-avatar',
-				borderColor !== 'white' && `border-${borderColor}`,
+				borderColor && `border-${borderColor}`,
 				borderOn && borderOn.map(type => `border-${type}`),
-				borderWidth !== 'normal' && `border-${borderWidth}`,
-				size !== 'normal' && size
+				borderWidth && `border-${borderWidth}`,
+				size && size
 			)}
 		>
 			<img className="a-avatar_image" src={src} alt={alt} />
