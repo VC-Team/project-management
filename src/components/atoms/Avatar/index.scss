@@ -1,0 +1,47 @@
+.a-avatar {
+	box-sizing: border-box;
+	display: inline-block;
+	overflow: hidden;
+	border-color: $COLOR-WHITE;
+	border-radius: 50%;
+
+	&_image {
+		width: 100%;
+		height: 100%;
+		vertical-align: middle;
+	}
+
+	&-small {
+		width: rem(20);
+		height: rem(20);
+	}
+
+	&-normal {
+		width: rem(30);
+		height: rem(30);
+	}
+
+	&-large {
+		width: rem(48);
+		height: rem(48);
+	}
+
+	&-border-small {
+		border-width: 1px;
+	}
+
+	&-border-normal {
+		border-width: 2px;
+	}
+
+	&-border-large {
+		border-width: 5px;
+	}
+
+	&-border-always,
+	&-border-hover:hover,
+	&-border-active:active,
+	&-border-focus:focus {
+		border-style: solid;
+	}
+}
