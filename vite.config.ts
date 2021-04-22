@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import { defineConfig } from 'vite';
 
-const pathSrc = resolve(__dirname, './src');
+const pathSrc = resolve(__dirname, './src').replace(/\\/g, '/');
 
 // https://vitejs.dev/config/
 export default defineConfig({
