@@ -24,17 +24,17 @@ module.exports = {
 					loader: require.resolve('sass-resources-loader'),
 					options: {
 						resources: [
-							path.resolve(__dirname, '../src/assets/scss/_variables.scss'),
-							path.resolve(__dirname, '../src/assets/scss/_mixins.scss'),
-							path.resolve(__dirname, '../src/assets/scss/_zIndex.scss'),
-							path.resolve(__dirname, '../src/assets/scss/_fonts.scss'),
-							path.resolve(__dirname, '../src/assets/scss/_functions.scss'),
-							path.resolve(__dirname, '../src/assets/scss/_globals.scss'),
+							path.resolve(__dirname, '..', 'src', 'assets', 'scss', '_variables.scss'),
+							path.resolve(__dirname, '..', 'src', 'assets', 'scss', '_mixins.scss'),
+							path.resolve(__dirname, '..', 'src', 'assets', 'scss', '_zIndex.scss'),
+							path.resolve(__dirname, '..', 'src', 'assets', 'scss', '_fonts.scss'),
+							path.resolve(__dirname, '..', 'src', 'assets', 'scss', '_functions.scss'),
+							path.resolve(__dirname, '..', 'src', 'assets', 'scss', '_globals.scss'),
 						],
 					},
 				},
 			],
-			include: path.resolve(__dirname, '../'),
+			include: path.resolve(__dirname, '..', '/'),
 		});
 		config.resolve.extensions.push('.ts', '.tsx');
 		return config;
