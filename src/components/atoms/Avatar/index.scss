@@ -1,10 +1,8 @@
 .a-avatar {
-	$BORDER_WHITE: rgb(255, 255, 255);
-
 	box-sizing: border-box;
 	display: inline-block;
 	overflow: hidden;
-	border-color: $BORDER_WHITE;
+	border-color: $COLOR-WHITE;
 	border-radius: 50%;
 
 	&_image {
@@ -14,18 +12,18 @@
 	}
 
 	&-small {
-		width: 20px;
-		height: 20px;
+		width: rem(20);
+		height: rem(20);
 	}
 
 	&-normal {
-		width: 30px;
-		height: 30px;
+		width: rem(30);
+		height: rem(30);
 	}
 
 	&-large {
-		width: 48px;
-		height: 48px;
+		width: rem(48);
+		height: rem(48);
 	}
 
 	&-border-small {
