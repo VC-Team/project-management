@@ -10,13 +10,13 @@ export interface TabProps {
 }
 
 const Tab: React.FC<TabProps> = ({ children, index }) => {
-	const { tabIndex, setTabIndex } = useContext(TabsContext);
+	const { tabIndex, onChangeTabIndex } = useContext(TabsContext);
 
 	return (
 		<div
 			className={mapModifiers('o-tab', tabIndex === index && 'active')}
 			role="button"
-			onClick={() => setTabIndex(index)}
+			onClick={() => onChangeTabIndex(index)}
 		>
 			{children}
 		</div>

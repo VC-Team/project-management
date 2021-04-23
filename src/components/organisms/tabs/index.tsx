@@ -1,7 +1,5 @@
 import React, { useState, Children, useMemo } from 'react';
 
-import { mapModifiers } from 'helpers/component';
-
 import { TabsContext, ITabsContext } from './context';
 
 export interface TabsProps {
@@ -10,23 +8,28 @@ export interface TabsProps {
 }
 
 export const Tabs: React.FC<TabsProps> = ({ children, forceRenderTabPanel }) => {
-	const [tabIndex, setTabIndex] = useState<number>(1);
+	const [tabIndex, setTabIndex] = useState<number | undefined>(() => (forceRenderTabPanel ? undefined : 1));
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const child = Children.map(children, (child: any, index) => {
 		if (index === 0 || child.props.index === tabIndex) return child;
 	});
 
+	const onChangeTabIndex = (index: number) => {
+		!forceRenderTabPanel && setTabIndex(index);
+	};
+
 	const exportValue = useMemo<ITabsContext>(() => {
 		return {
 			tabIndex,
-			setTabIndex,
+			onChangeTabIndex,
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [tabIndex]);
 
 	return (
 		<TabsContext.Provider value={exportValue}>
-			<div className={mapModifiers('o-tabs')}>{forceRenderTabPanel ? children : child}</div>
+			<div className="o-tabs">{forceRenderTabPanel ? children : child}</div>
 		</TabsContext.Provider>
 	);
 };
