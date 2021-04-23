@@ -1,0 +1,29 @@
+.o-tabs {
+	position: relative;
+	width: 100%;
+}
+
+.o-tab_list {
+	position: absolute;
+	top: rem(-34);
+	display: flex;
+	height: rem(34);
+}
+
+.o-tab {
+	box-sizing: border-box;
+	height: 100%;
+	margin-right: 30px;
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	&-active {
+		border-bottom: 2px solid $COLOR-YELLOW;
+	}
+}
+
+.o-tab_panel {
+	width: 100%;
+}
