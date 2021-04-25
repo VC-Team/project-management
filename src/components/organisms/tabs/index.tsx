@@ -12,7 +12,7 @@ export const Tabs: React.FC<TabsProps> = ({ children, forceRenderTabPanel }) => 
 
 	const child = Children.map(children, (child, index) => {
 		if (index === 0 && isValidElement(child)) {
-			return cloneElement(child, { onChangeTabIndex });
+			return cloneElement(child, { onChangeTabIndex, tabIndex });
 		}
 		if (index === tabIndex + 1) return child;
 	});
