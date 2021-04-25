@@ -13,13 +13,13 @@ const Template: Story<TabsProps> = ({ ...otherProps }) => {
 		<div style={{ margin: 100, width: 800, height: 300, backgroundColor: '#EEEBE5' }}>
 			<Tabs {...otherProps}>
 				<TabList>
-					<Tab index={1}>Tab 1</Tab>
-					<Tab index={2}>Tab 2</Tab>
-					<Tab index={3}>Tab 3</Tab>
+					<Tab>Tab 1</Tab>
+					<Tab>Tab 2</Tab>
+					<Tab>Tab 3</Tab>
 				</TabList>
-				<TabPanel index={1}>TabPanel 1</TabPanel>
-				<TabPanel index={2}>TabPanel 2</TabPanel>
-				<TabPanel index={3}>TabPanel 3</TabPanel>
+				<TabPanel>TabPanel 1</TabPanel>
+				<TabPanel>TabPanel 2</TabPanel>
+				<TabPanel>TabPanel 3</TabPanel>
 			</Tabs>
 		</div>
 	);
