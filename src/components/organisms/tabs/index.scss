@@ -25,5 +25,10 @@
 }
 
 .o-tab_panel {
+	display: none;
 	width: 100%;
+
+	&-selected {
+		display: initial;
+	}
 }

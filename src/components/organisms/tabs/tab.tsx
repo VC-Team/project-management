@@ -6,16 +6,16 @@ export interface TabProps {
 	children: React.ReactNode;
 	index?: number;
 	isActive?: boolean;
-	onChangeTabIndex?: (index: number) => void;
+	setTabIndex?: (index: number) => void;
 }
 
-const Tab: React.FC<TabProps> = ({ children, index = 0, isActive, onChangeTabIndex }) => {
-	const onHandleClick = () => {
-		if (onChangeTabIndex) onChangeTabIndex(index);
-	};
-
+const Tab: React.FC<TabProps> = ({ children, index = 0, isActive, setTabIndex }) => {
 	return (
-		<div className={mapModifiers('o-tab', isActive && 'active')} role="button" onClick={onHandleClick}>
+		<div
+			className={mapModifiers('o-tab', isActive && 'active')}
+			role="button"
+			onClick={() => setTabIndex && setTabIndex(index)}
+		>
 			{children}
 		</div>
 	);

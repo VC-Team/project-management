@@ -1,5 +1,9 @@
 import React, { useState, Children, isValidElement, cloneElement } from 'react';
 
+export { default as Tab } from './tab';
+export { default as TabList } from './tablist';
+export { default as TabPanel } from './tabpanel';
+
 export interface TabsProps {
 	children: React.ReactNode;
 	forceRenderTabPanel?: boolean;
@@ -8,18 +12,18 @@ export interface TabsProps {
 export const Tabs: React.FC<TabsProps> = ({ children, forceRenderTabPanel }) => {
 	const [tabIndex, setTabIndex] = useState<number>(0);
 
-	const onChangeTabIndex = (index: number) => setTabIndex(index);
-
-	const child = Children.map(children, (child, index) => {
-		if (index === 0 && isValidElement(child)) {
-			return cloneElement(child, { onChangeTabIndex, tabIndex });
-		}
-		if (index === tabIndex + 1) return child;
-	});
-
-	return <div className="o-tabs">{forceRenderTabPanel ? children : child}</div>;
+	return (
+		<div className="o-tabs">
+			{Children.map(children, (child, index) => {
+				if (isValidElement(child)) {
+					if (index === 0) {
+						return cloneElement(child, { setTabIndex, tabIndex });
+					}
+					return cloneElement(child, { forceRender: forceRenderTabPanel, selected: index === tabIndex + 1 });
+				}
+			})}
+		</div>
+	);
 };
 
-export { default as Tab } from './tab';
-export { default as TabList } from './tablist';
-export { default as TabPanel } from './tabpanel';
+export default Tabs;
