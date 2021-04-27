@@ -11,9 +11,11 @@ export interface TabPanelProps {
 }
 
 const TabPanel: React.FC<TabPanelProps> = ({ children, forceRender, selected }) => {
-	return (
-		<div className={mapModifiers('o-tab_panel', selected && 'selected')}>{(forceRender || selected) && children}</div>
-	);
+	if (forceRender || selected) {
+		return <div className={mapModifiers('o-tab_panel', selected && 'selected')}>{children}</div>;
+	} else {
+		return null;
+	}
 };
 
 export default TabPanel;

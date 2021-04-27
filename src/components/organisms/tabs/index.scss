@@ -1,13 +1,25 @@
 .o-tabs {
 	position: relative;
 	width: 100%;
+	background-color: $COLOR-ISABELLINE;
 }
 
 .o-tab_list {
 	position: absolute;
 	top: rem(-34);
+	z-index: z('tabList');
 	display: flex;
 	height: rem(34);
+	padding-left: 30px;
+
+	&_divider {
+		position: absolute;
+		bottom: 0;
+		height: 2px;
+		content: '';
+		background-color: $COLOR-AMBER;
+		transition: 300ms;
+	}
 }
 
 .o-tab {
@@ -18,17 +30,15 @@
 	&:last-child {
 		margin-right: 0;
 	}
-
-	&-active {
-		border-bottom: 2px solid $COLOR-AMBER;
-	}
 }
 
 .o-tab_panel {
+	box-sizing: border-box;
 	display: none;
 	width: 100%;
+	padding: 30px;
 
 	&-selected {
-		display: initial;
+		display: block;
 	}
 }

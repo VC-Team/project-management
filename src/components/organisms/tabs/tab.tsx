@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-import { mapModifiers } from 'helpers/component';
+import Text from '@atoms/Text';
 
 export interface TabProps {
 	children: React.ReactNode;
@@ -10,15 +10,15 @@ export interface TabProps {
 }
 
 const Tab: React.FC<TabProps> = ({ children, index = 0, isActive, setTabIndex }) => {
+	const onHandleClick = () => setTabIndex && setTabIndex(index);
+
 	return (
-		<div
-			className={mapModifiers('o-tab', isActive && 'active')}
-			role="button"
-			onClick={() => setTabIndex && setTabIndex(index)}
-		>
-			{children}
+		<div className="o-tab" role="button" onClick={onHandleClick}>
+			<Text as="b" color={isActive ? 'primary' : 'secondary'}>
+				{children}
+			</Text>
 		</div>
 	);
 };
 
-export default Tab;
+export default memo(Tab);

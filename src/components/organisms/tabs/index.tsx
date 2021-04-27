@@ -7,9 +7,11 @@ export { default as TabPanel } from './tabpanel';
 export interface TabsProps {
 	children: React.ReactNode;
 	forceRenderTabPanel?: boolean;
+	selectedIndex?: number;
+	onSelect?: (index: number) => void;
 }
 
-export const Tabs: React.FC<TabsProps> = ({ children, forceRenderTabPanel }) => {
+export const Tabs: React.FC<TabsProps> = ({ children, forceRenderTabPanel, selectedIndex, onSelect }) => {
 	const [tabIndex, setTabIndex] = useState<number>(0);
 
 	return (
@@ -17,9 +19,15 @@ export const Tabs: React.FC<TabsProps> = ({ children, forceRenderTabPanel }) => 
 			{Children.map(children, (child, index) => {
 				if (isValidElement(child)) {
 					if (index === 0) {
-						return cloneElement(child, { setTabIndex, tabIndex });
+						return cloneElement(child, {
+							setTabIndex: selectedIndex === undefined ? setTabIndex : onSelect,
+							tabIndex: selectedIndex || tabIndex,
+						});
 					}
-					return cloneElement(child, { forceRender: forceRenderTabPanel, selected: index === tabIndex + 1 });
+					return cloneElement(child, {
+						forceRender: forceRenderTabPanel,
+						selected: index === (selectedIndex || tabIndex) + 1,
+					});
 				}
 			})}
 		</div>
