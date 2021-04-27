@@ -5,7 +5,7 @@ import { mapModifiers } from 'helpers/component';
 import './index.scss';
 export interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
 	align?: 'left' | 'center' | 'right' | 'justify';
-	as?: 'p' | 'i' | 'u' | 'abbr' | 'cite' | 'del' | 'em' | 'ins' | 'kbd' | 'mark' | 's' | 'samp' | 'sub' | 'sup';
+	as?: 'p' | 'b' | 'i' | 'u' | 'abbr' | 'cite' | 'del' | 'em' | 'ins' | 'kbd' | 'mark' | 's' | 'samp' | 'sub' | 'sup';
 	color?: 'primary' | 'secondary';
 	display?: 'block' | 'inline';
 	isTruncated?: boolean;
