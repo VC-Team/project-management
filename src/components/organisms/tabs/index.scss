@@ -1,0 +1,41 @@
+.o-tabs {
+	width: 100%;
+}
+
+.o-tab_list {
+	position: relative;
+	display: flex;
+	min-height: rem(34);
+	padding-left: 30px;
+
+	&_divider {
+		position: absolute;
+		bottom: 0;
+		height: 2px;
+		content: '';
+		background-color: $COLOR-AMBER;
+		transition: 300ms;
+	}
+}
+
+.o-tab {
+	box-sizing: border-box;
+	height: 100%;
+	margin-right: 30px;
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.o-tab_panel {
+	box-sizing: border-box;
+	display: none;
+	width: 100%;
+	padding: 30px;
+	background-color: $COLOR-ISABELLINE;
+
+	&-selected {
+		display: block;
+	}
+}
