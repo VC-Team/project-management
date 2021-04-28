@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 
 import Text from '@atoms/Text';
-
 export interface TabProps {
 	children: React.ReactNode;
 	index?: number;
@@ -9,7 +8,7 @@ export interface TabProps {
 	setTabIndex?: (index: number) => void;
 }
 
-const Tab: React.FC<TabProps> = ({ children, index = 0, isActive, setTabIndex }) => {
+export const Tab: React.FC<TabProps> = memo(({ children, index = 0, isActive, setTabIndex }) => {
 	const onHandleClick = () => setTabIndex && setTabIndex(index);
 
 	return (
@@ -19,6 +18,4 @@ const Tab: React.FC<TabProps> = ({ children, index = 0, isActive, setTabIndex })
 			</Text>
 		</div>
 	);
-};
-
-export default memo(Tab);
+});

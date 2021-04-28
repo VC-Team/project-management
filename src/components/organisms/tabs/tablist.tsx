@@ -1,14 +1,11 @@
 import React, { useRef, Children, isValidElement, cloneElement, useEffect } from 'react';
-
-import './index.scss';
-
 export interface TabListProps {
 	children: React.ReactNode;
 	setTabIndex?: (index: number) => void;
 	tabIndex?: number;
 }
 
-const TabList: React.FC<TabListProps> = ({ children, tabIndex = 0, setTabIndex }) => {
+export const TabList: React.FC<TabListProps> = ({ children, tabIndex = 0, setTabIndex }) => {
 	const ref: React.LegacyRef<HTMLDivElement> = useRef(null);
 
 	const onHandleClick = (index: number) => {
@@ -36,5 +33,3 @@ const TabList: React.FC<TabListProps> = ({ children, tabIndex = 0, setTabIndex }
 		</div>
 	);
 };
-
-export default TabList;

@@ -1,15 +1,11 @@
 .o-tabs {
-	position: relative;
 	width: 100%;
-	background-color: $COLOR-ISABELLINE;
 }
 
 .o-tab_list {
-	position: absolute;
-	top: rem(-34);
-	z-index: z('tabList');
+	position: relative;
 	display: flex;
-	height: rem(34);
+	min-height: rem(34);
 	padding-left: 30px;
 
 	&_divider {
@@ -37,6 +33,7 @@
 	display: none;
 	width: 100%;
 	padding: 30px;
+	background-color: $COLOR-ISABELLINE;
 
 	&-selected {
 		display: block;
